@@ -57,9 +57,13 @@ let message = "Il prezzo del tuo biglietto è ";
 const journeyLengthStr = prompt("Inserisci i km da percorrere");
 const travelerAgeStr = prompt("Inserisci la tua età")
 
-if (isNaN(journeyLengthStr) || isNaN(travelerAgeStr)) {
+if (!journeyLengthStr || !travelerAgeStr) {
+    console.log("Valori Nulli. Ricarica per riprovare");
+} else if (isNaN(journeyLengthStr) || isNaN(travelerAgeStr)) {
     console.log("Inserisci dei numeri validi. Ricarica per riprovare");
 } else {
+    DEBUG & console.log("[DEBUG]journeyLengthStr: ", journeyLengthStr);
+    DEBUG & console.log("[DEBUG]travelerAgeStr: ", travelerAgeStr);
     const travelerAge = parseInt(travelerAgeStr);
     const journeyLength = parseInt(journeyLengthStr); 100
     if (travelerAge > 65) {

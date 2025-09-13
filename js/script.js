@@ -62,8 +62,8 @@ if (!journeyLengthStr || !travelerAgeStr) {
 } else if (isNaN(journeyLengthStr) || isNaN(travelerAgeStr)) {
     console.log("Inserisci dei numeri validi. Ricarica per riprovare");
 } else {
-    DEBUG & console.log("[DEBUG]journeyLengthStr: ", journeyLengthStr);
-    DEBUG & console.log("[DEBUG]travelerAgeStr: ", travelerAgeStr);
+    DEBUG && console.log("[DEBUG]journeyLengthStr: ", journeyLengthStr);
+    DEBUG && console.log("[DEBUG]travelerAgeStr: ", travelerAgeStr);
     const travelerAge = parseInt(travelerAgeStr);
     const journeyLength = parseInt(journeyLengthStr); 100
     if (travelerAge > 65) {
@@ -82,9 +82,9 @@ if (!journeyLengthStr || !travelerAgeStr) {
     discount = price * discountPercentage / 100;
     finalPrice = price - discount;
 
-    DEBUG & console.log("[DEBUG]price: ", price);
-    DEBUG & console.log("[DEBUG]discount: ", discount);
-    DEBUG & console.log("[DEBUG]finalPrice: ", finalPrice);
+    DEBUG && console.log("[DEBUG]price: ", price);
+    DEBUG && console.log("[DEBUG]discount: ", discount);
+    DEBUG && console.log("[DEBUG]finalPrice: ", finalPrice);
 
     console.log(`${message} ${ITEur.format(finalPrice)}`)
     console.log(`Lo sconto applicato è pari a ${ITEur.format(discount)}`)

@@ -40,7 +40,7 @@ Applicare de controlli sull'input dell'utente
  * 
  * Stampare il messaggio finale in formato umano
  */
-DEBUG = true
+DEBUG = false
 
 const ITEur = new Intl.NumberFormat('it-IT', {
     style: "currency",
@@ -61,7 +61,7 @@ if (isNaN(journeyLengthStr) || isNaN(travelerAgeStr)) {
     console.log("Inserisci dei numeri validi. Ricarica per riprovare");
 } else {
     const travelerAge = parseInt(travelerAgeStr);
-    const journeyLength = parseInt(journeyLengthStr);
+    const journeyLength = parseInt(journeyLengthStr); 100
     if (travelerAge > 65) {
         discountPercentage = 40
     } else if (travelerAge > 18) {
@@ -78,9 +78,9 @@ if (isNaN(journeyLengthStr) || isNaN(travelerAgeStr)) {
     discount = price * discountPercentage / 100;
     finalPrice = price - discount;
 
-    DEBUG & console.log("price: ", price);
-    DEBUG & console.log("discount: ", discount);
-    DEBUG & console.log("finalPrice: ", finalPrice);
+    DEBUG & console.log("[DEBUG]price: ", price);
+    DEBUG & console.log("[DEBUG]discount: ", discount);
+    DEBUG & console.log("[DEBUG]finalPrice: ", finalPrice);
 
     console.log(`${message} ${ITEur.format(finalPrice)}`)
     console.log(`Lo sconto applicato è pari a ${ITEur.format(discount)}`)

@@ -3,11 +3,14 @@
  * Stampa il risultato corrispondente.
  * 
  * RACCOLTA DATI
+ * 
  * Chiedere all'utente il primo numero
  * chiedere all'utente il secondo numero
  * chiedere all'utente l'operazione da eseguire
  * 
+ * 
  * ESECUZIONE LOGICA
+ * 
  * Se (operazione scelta è SOMMA)
  *  allora sommare i due numeri
  *  salvare il risultato
@@ -15,7 +18,9 @@
  *  sottrarre il secondo numero al primo
  *  salvare il risultato
  * 
+ * 
  * OUTPUT DEL RISULTATO
+ * 
  * stampare il risultato dell'operazione seguita
  */
 const debug = true;

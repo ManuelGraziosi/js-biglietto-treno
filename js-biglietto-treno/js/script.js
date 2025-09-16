@@ -27,8 +27,8 @@ Applicare de controlli sull'input dell'utente
  * richiedere l'età del passeggero
  * 
  * ESECUSIONE LOGICA
- * 
- * Calcolare il prezzo finale
+ * ## da lez: trasformare gli input in numeri
+ * Calcolare il prezzo per kilometro
  * 
  * determinare lo sconto e preparare messaggio
  *  -20% se Age < 18
@@ -40,7 +40,6 @@ Applicare de controlli sull'input dell'utente
  * 
  * Stampare il messaggio finale in formato umano
  */
-DEBUG = false
 
 const ITEur = new Intl.NumberFormat('it-IT', {
     style: "currency",
@@ -48,11 +47,12 @@ const ITEur = new Intl.NumberFormat('it-IT', {
 })
 
 const kmCost = 0.21;
-let discountPercentage = 0;
-let price = 0;
-let discount = 0;
+let basePrice = 0;
 let finalPrice = 0;
-let message = "Il prezzo del tuo biglietto è ";
+let discount = 0;
+let discountPercentage = 0;
+let messagePrice = "Il prezzo del tuo biglietto è";
+let messageDiscount = "Lo sconto applicato è pari a";
 
 const journeyLengthStr = prompt("Inserisci i km da percorrere");
 const travelerAgeStr = prompt("Inserisci la tua età")
@@ -67,33 +67,21 @@ if (!journeyLengthStr || !travelerAgeStr) {
 
 } else {
 
-    DEBUG && console.log("[DEBUG]journeyLengthStr: ", journeyLengthStr);
-    DEBUG && console.log("[DEBUG]travelerAgeStr: ", travelerAgeStr);
-
     const travelerAge = parseInt(travelerAgeStr);
     const journeyLength = parseInt(journeyLengthStr); 100
+
     if (travelerAge > 65) {
         discountPercentage = 40
-    } else if (travelerAge > 18) {
-        discountPercentage = 0
-    } else {
+    } else if (travelerAge < 18) {
         discountPercentage = 20
     }
-    /**
-     * Versione di calcolo compatta: commentata per avere traccia degli step di conto
-     */
-    // finalPrice = price * (1 - discountPercentage / 100);
 
-    price = journeyLength * kmCost;
-    discount = price * discountPercentage / 100;
-    finalPrice = price - discount;
+    basePrice = journeyLength * kmCost;
+    discount = basePrice * discountPercentage / 100;
+    finalPrice = basePrice - discount;
 
-    DEBUG && console.log("[DEBUG]price: ", price);
-    DEBUG && console.log("[DEBUG]discount: ", discount);
-    DEBUG && console.log("[DEBUG]finalPrice: ", finalPrice);
-
-    console.log(`${message} ${ITEur.format(finalPrice)}`)
-    console.log(`Lo sconto applicato è pari a ${ITEur.format(discount)}`)
+    console.log(`${messagePrice} ${ITEur.format(finalPrice)}`)
+    console.log(`${messageDiscount} ${ITEur.format(discount)}`)
 
 }
 

@@ -52,6 +52,7 @@ let discountPercentage = 0;
 if (!productStr || !quantityStr || !checkFidelityCard) {
     console.log("ERRORE: dati inseriti non validi");
 } else {
+    const quantity = parseInt(quantityStr);
 
     // Definizione del prezzo del prodotto scelto
     if (productStr === "pane") {
@@ -65,7 +66,7 @@ if (!productStr || !quantityStr || !checkFidelityCard) {
     }
 
     // Calcolo del totale prima dello sconto
-    const subTotal = productPrice * quantityStr;
+    const subTotal = productPrice * quantity;
 
     // Calcolo della percentuale di sconto
     if (checkFidelityCard === "si") {
@@ -86,7 +87,7 @@ if (!productStr || !quantityStr || !checkFidelityCard) {
 
     // Stampa dello scontrino
     console.log(`SCONTRINO
-        ${quantityStr} * ${productPrice}€ -> ${subTotal}€
+        ${quantity} * ${productPrice}€ -> ${subTotal}€
         ${productStr}
         SCONTO: ${discountPercentage}% -> ${discount}€
         TOTALE: ${total}€
